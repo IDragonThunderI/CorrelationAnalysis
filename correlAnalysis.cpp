@@ -29,11 +29,9 @@ int main()
 		yi.push_back(buf);
 	}
 
-	wcout << L"\n#=======================================================#\n\n";
+	wcout << L"\n#=======================================================#\n";
 	double x_ = accumulate(xi.begin(), xi.end(), 0.0) / n;
 	double y_ = accumulate(yi.begin(), yi.end(), 0.0) / n;
-	wcout << L"x—: " << x_ << "\n";
-	wcout << L"y—: " << y_ << "\n";
 
 	wcout << setw(21) << left << L"\nxi: " << right;
 	for (int i = 0; i < n; i++)
@@ -76,6 +74,9 @@ int main()
 		y2.push_back(pow(yi.at(i) - y_, 2));
 		wcout << setw(8) << setprecision(4) << y2.at(i);
 	}
+
+	wcout << L"\n\nx—: " << x_;
+	wcout << L"\ny—: " << y_;
 
 	double r = accumulate(xy.begin(), xy.end(), 0.0) / sqrt(accumulate(x2.begin(), x2.end(), 0.0) * accumulate(y2.begin(), y2.end(), 0.0));
 	double t = r * (sqrt(n - 2.0) / sqrt(1.0 - pow(r, 2)));
